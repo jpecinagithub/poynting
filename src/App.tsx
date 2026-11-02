@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { dict, paperExcerpts, type Lang } from './i18n'
+import { dict, type Lang } from './i18n'
 import CircuitLab from './components/CircuitLab'
 import WireSection from './components/WireSection'
 import EmWave from './components/EmWave'
 import Quiz from './components/Quiz'
+import DocViewer from './components/DocViewer'
 
 export default function App() {
   const [lang, setLang] = useState<Lang>(() => (localStorage.getItem('poynting-lang') as Lang) || 'es')
@@ -197,33 +198,12 @@ export default function App() {
             </a>
           </div>
 
-          <h3>{t.paper.openingTitle}</h3>
-          <p className="note">{t.paper.openingNote}</p>
-          <blockquote className="paper">
-            <p className="paper-head">
-              XV. <em>On the Transfer of Energy in the Electromagnetic Field.</em>
-              <br />
-              By J. H. Poynting, M.A., late Fellow of Trinity College, Cambridge, Professor of Physics, Mason College, Birmingham.
-              <br />
-              Communicated by Lord Rayleigh, M.A., D.C.L., F.R.S. — Received December 17, 1883, — Read January 10, 1884.
-            </p>
-            {paperExcerpts.opening.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </blockquote>
-
-          <h3>{t.paper.keyPassageTitle}</h3>
-          <blockquote className="paper">
-            <p>{paperExcerpts.thesis}</p>
-          </blockquote>
-          <p className="note">{t.paper.keyPassageNote}</p>
-
-          <h3>{t.paper.wireTitle}</h3>
-          <blockquote className="paper">
-            <p>{paperExcerpts.wire}</p>
-          </blockquote>
-          <p className="note">{t.paper.wireNote}</p>
-          <p className="note">{t.paper.downloadNote}</p>
+          <div className="doc-head">
+            <p className="kicker">{t.doc.kicker}</p>
+            <h3 className="doc-h">{t.doc.title}</h3>
+            <p className="note">{t.doc.intro}</p>
+          </div>
+          <DocViewer t={t} lang={lang} />
         </section>
 
         <section id="teoria" className="section">

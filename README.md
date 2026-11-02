@@ -15,8 +15,13 @@ viaja en el campo electromagnético que rodea a los cables, según el vector de 
 - La prueba de Poynting en un hilo recto: S entra radialmente y explica el calor Joule.
 - Onda electromagnética animada (E, B, S) y regla de la mano derecha.
 - Reseña biográfica de Poynting con fotografía (dominio público, Wikimedia Commons).
-- Extractos del texto original de 1884 (dominio público) con enlaces al texto completo
-  en Wikisource y a la ficha de la Royal Society.
+- El texto original de 1884 casi íntegro (dominio público) en un **visor anotable**:
+  subrayado en amarillo seleccionando el texto, boli rojo de trazo libre, notas de
+  texto arrastrables en rojo, borrado selectivo, deshacer, tamaño de letra ajustable,
+  barra de progreso de lectura e índice por secciones. Las anotaciones se guardan en
+  el navegador (localStorage) y el documento anotado se puede **descargar en HTML**
+  autónomo o **imprimir/guardar como PDF**, con subrayados, trazos y notas integrados.
+  Enlaces al texto completo en Wikisource y a la ficha de la Royal Society.
 - Teoría (teorema de Poynting), práctica (el cordón de la lámpara, pérdidas, diseño de líneas,
   P = V·I), mitos y realidades, y un cuestionario interactivo de 5 preguntas.
 

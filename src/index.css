@@ -190,3 +190,83 @@ footer .small { font-size: 13px; }
   html { scroll-behavior: auto; }
   .pulse, .flowdash, .heatpulse { animation: none; }
 }
+
+/* ---------- document viewer (annotatable original paper) ---------- */
+.doc-head { margin-top: 34px; }
+.doc-h { font-size: 24px !important; }
+.docviewer { margin-top: 10px; }
+.doc-progress { height: 5px; background: var(--line); border-radius: 3px; overflow: hidden; margin-bottom: 12px; }
+.doc-progress div { height: 100%; background: var(--s); transition: width 0.15s linear; }
+.doctools {
+  position: sticky; top: 64px; z-index: 30; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  background: rgba(15, 26, 46, 0.97); border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.4);
+}
+.toolbtn {
+  background: var(--panel2); color: var(--text); border: 1px solid var(--line); border-radius: 10px;
+  padding: 8px 11px; font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap;
+}
+.toolbtn:hover { border-color: var(--s); }
+.toolbtn.on { background: #ffec70; color: #3a3205; border-color: #ffec70; }
+.toolbtn.danger:hover { border-color: var(--bad); color: var(--bad); }
+.toolbtn.dl { background: var(--s); color: #1a1202; border-color: var(--s); }
+.toolsep { width: 1px; align-self: stretch; background: var(--line); margin: 2px 3px; }
+.dochint { color: var(--muted); font-size: 14.5px; margin: 10px 2px 4px; }
+.docsaved { color: #7d8ea6; }
+.doctoc { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0 14px; }
+.doctoc button {
+  background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 12px; font-size: 13px; cursor: pointer;
+}
+.doctoc button:hover { color: var(--s); border-color: var(--s); }
+.docpage {
+  position: relative; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 4px 14px rgba(0,0,0,0.4);
+}
+.docpage.tool-highlight { cursor: text; }
+.docpage.tool-pen { cursor: crosshair; }
+.docpage.tool-text { cursor: copy; }
+.docpaper {
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(120, 100, 40, 0.03) 32px),
+    linear-gradient(160deg, #faf5e4, #f3ecd4 60%, #efe6c8);
+  color: #2a2519; font-family: Georgia, 'Times New Roman', serif;
+  padding: clamp(22px, 5vw, 58px) clamp(18px, 6vw, 64px) 40px;
+  font-size: 17.5px; line-height: 1.78;
+}
+.doc-pp { text-align: right; font-size: 12.5px; letter-spacing: 0.08em; color: #8a7c52; margin: 0 0 4px; text-transform: uppercase; }
+.doc-title { text-align: center; font-size: 1.45em; margin: 4px 0 8px; line-height: 1.3; }
+.doc-byline { text-align: center; font-style: italic; margin: 0 0 4px; font-size: 0.98em; }
+.doc-comms { text-align: center; font-size: 0.85em; color: #5d543e; border-bottom: 1px solid #c9bc92; padding-bottom: 16px; margin: 0 0 6px; }
+.docsec { scroll-margin-top: 150px; }
+.docsec h4 { font-size: 0.92em; letter-spacing: 0.07em; text-transform: uppercase; color: #57491f; margin: 26px 0 8px; }
+.docpaper p { text-align: justify; margin: 0 0 13px; }
+.docpaper p.dropcap::first-letter {
+  font-size: 3.1em; float: left; line-height: 0.85; padding: 4px 10px 0 0; color: #8a6d1c; font-weight: 700;
+}
+.doc-end { text-align: center !important; color: #8a7c52; letter-spacing: 0.4em; margin-top: 22px !important; }
+.hlmark { background: #ffec70; color: inherit; padding: 0 1px; border-radius: 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.tool-erase .hlmark { cursor: pointer; }
+.tool-erase .hlmark:hover { background: #ffb3b3; }
+.penlayer { position: absolute; left: 0; top: 0; z-index: 5; }
+.docnote {
+  position: absolute; z-index: 8; width: 210px; background: rgba(255, 253, 224, 0.96);
+  border: 1.5px solid rgba(220, 38, 38, 0.55); border-radius: 8px; transform: rotate(-1deg);
+  box-shadow: 0 8px 20px rgba(60, 40, 0, 0.3); overflow: hidden;
+}
+.docnote-bar {
+  display: flex; justify-content: space-between; align-items: center; padding: 2px 6px;
+  background: rgba(220, 38, 38, 0.1); cursor: grab; touch-action: none; font-size: 12px;
+}
+.docnote-bar:active { cursor: grabbing; }
+.docnote-x { background: transparent; border: 0; color: #dc2626; font-size: 17px; font-weight: 900; cursor: pointer; line-height: 1; padding: 0 2px; }
+.docnote-text {
+  width: 100%; box-sizing: border-box; border: 0; background: transparent; resize: vertical;
+  color: #dc2626; font-family: 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive;
+  font-size: 16.5px; line-height: 1.35; padding: 6px 9px; outline: none;
+}
+@media (max-width: 760px) {
+  .doctools { top: 56px; }
+  .toolbtn { font-size: 13px; padding: 7px 9px; }
+  .docnote { width: 170px; }
+}
